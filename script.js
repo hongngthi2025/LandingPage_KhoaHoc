@@ -154,13 +154,43 @@ document.addEventListener('DOMContentLoaded', () => {
         lastScroll = currentScroll;
     });
 
-    // --- Register button click tracking ---
-    const registerBtns = document.querySelectorAll('a[href*="m.me"]');
+    // --- Register Modal ---
+    const modal = document.getElementById('registerModal');
+    const modalClose = document.getElementById('modalClose');
+    const registerBtns = document.querySelectorAll('.register-btn');
+
     registerBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Track conversion (can be connected to analytics later)
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
             console.log('PINK AI — Register button clicked');
         });
+    });
+
+    if (modalClose) {
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+
+    // Close modal when clicking overlay
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
     });
 
 });

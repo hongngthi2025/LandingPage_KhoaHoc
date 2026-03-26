@@ -1287,3 +1287,145 @@ a {
         padding: 24px 20px;
     }
 }
+
+/* --- Footer Contact --- */
+.footer-contact {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid var(--border);
+    margin-top: 24px;
+}
+
+.footer-contact p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+.footer-contact a {
+    color: var(--pink-400);
+    font-weight: 700;
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.footer-contact a:hover {
+    color: var(--pink-500);
+    text-decoration: underline;
+}
+
+/* --- Registration Modal --- */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.modal-overlay.active {
+    display: flex;
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modalSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-content {
+    background: var(--bg-card);
+    border: 1px solid var(--border-hover);
+    border-radius: var(--radius);
+    padding: 48px 40px;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(236, 72, 153, 0.2);
+    animation: modalSlideUp 0.4s ease;
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: var(--transition);
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: var(--pink-500);
+    transform: scale(1.2);
+}
+
+.modal-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+.modal-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.modal-phone {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--pink-400), var(--magenta-500));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 28px;
+    letter-spacing: 0.05em;
+}
+
+.modal-content .btn {
+    width: 100%;
+}
+
+.modal-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.modal-buttons .btn-outline {
+    border-color: var(--border-hover);
+    color: var(--text-primary);
+}
+
+.modal-buttons .btn-outline:hover {
+    background: rgba(236, 72, 153, 0.08);
+    border-color: var(--pink-500);
+}
